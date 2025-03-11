@@ -8,13 +8,15 @@
     "test": "node server.js"
   },
   "dependencies": {
-    "body-parser": "1.19.0",
+    "body-parser": "^1.20.3",
     "chai": "4.3.4",
     "chai-http": "4.3.0",
     "cors": "2.8.5",
     "express": "^4.21.2",
-    "mocha": "^9.2.2",
-    "zombie": "^0.12.15"
+    "jsdom": "^26.0.0",
+    "mime": "^4.0.6",
+    "mocha": "^11.1.0",
+    "zombie": "^6.1.4"
   },
   "license": "MIT"
 }
