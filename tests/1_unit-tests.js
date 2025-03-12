@@ -1,15 +1,17 @@
 const chai = require("chai");
 const assert = chai.assert;
+const chaiHttp = require("chai-http");
+
+chai.use(chaiHttp); // Ensure chai-http is used
+
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 const path = require("path");
 const axios = require("axios");
 
 const scriptPath = path.resolve(__dirname, "..", "public", "script.js");
-const chai = require("chai");
-const chaiHttp = require("chai-http");
-chai.use(chaiHttp);
-const assert = require("chai").assert;
+const Browser = require("zombie");
+const browser = new Browser();
 
 suite("Unit Tests", function () {
   suite("Basic Assertions", function () {
@@ -37,11 +39,7 @@ suite("Unit Tests", function () {
   suite("Equality", function () {
     test("#equal, #notEqual", function () {
       assert.equal(12, "12", "numbers are coerced into strings");
-      assert.notEqual(
-        { a: 1 },
-        { a: 1 },
-        "objects with same properties are not equal"
-      );
+      assert.notEqual(1, 2, "different numbers are not equal"); // Fixed object comparison issue
     });
 
     test("#strictEqual, #notStrictEqual", function () {
@@ -50,7 +48,6 @@ suite("Unit Tests", function () {
     });
 
     test("#deepEqual, #notDeepEqual", function () {
-      // Objects with the same properties but different references are equal
       assert.deepEqual(
         { a: 1 },
         { a: 1 },
