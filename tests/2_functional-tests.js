@@ -1,6 +1,6 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http"); // Fixed incorrect variable name
-chai.use(chaiHttp); // Apply chaiHttp middleware
+chai.use(chaiHttp);
 
 const { assert, request } = chai;
 const server = require("../server");
