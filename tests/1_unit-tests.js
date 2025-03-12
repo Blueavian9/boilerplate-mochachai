@@ -6,6 +6,10 @@ const path = require("path");
 const axios = require("axios");
 
 const scriptPath = path.resolve(__dirname, "..", "public", "script.js");
+const chai = require("chai");
+const chaiHttp = require("chai-http");
+chai.use(chaiHttp);
+const assert = require("chai").assert;
 
 suite("Unit Tests", function () {
   suite("Basic Assertions", function () {
@@ -47,15 +51,15 @@ suite("Unit Tests", function () {
 
     test("#deepEqual, #notDeepEqual", function () {
       // Objects with the same properties but different references are equal
-      assert.notDeepEqual(
+      assert.deepEqual(
         { a: 1 },
         { a: 1 },
-        "objects with same properties are not equal"
+        "objects with same properties are deeply equal"
       );
       assert.notDeepEqual(
         { a: 1 },
         { a: 2 },
-        "objects with different properties are deeply equal"
+        "objects with different properties are not deeply equal"
       );
     });
   });
