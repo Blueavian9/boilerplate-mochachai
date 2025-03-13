@@ -1,12 +1,12 @@
 const chai = require("chai");
-const chaiHttp = require("chai-http"); // Fixed incorrect variable name
-chai.use(chaiHttp);
-
+const request = require("supertest");
+const app = require("../server"); // Import my Express App
 const { assert, request } = chai;
 const server = require("../server");
-
 const Browser = require("zombie");
 const browser = new Browser();
+const cors = require("cors");
+app.use(cors());
 
 suite("Functional Tests", function () {
   suite("Integration tests with chai-http", function () {
