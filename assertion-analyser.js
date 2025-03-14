@@ -1,3 +1,5 @@
+import analyser from "./assertion-analyser.js";
+
 function objParser(str, init) {
   // finds objects, arrays, strings, and function arguments
   // between parens, because they may contain ','
