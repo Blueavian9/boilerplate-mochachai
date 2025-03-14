@@ -1,11 +1,11 @@
-const assertionAnalyser = require("./assertion-analyser.js");
-const { EventEmitter } = require("events");
-const Mocha = require("mocha");
-const fs = require("fs");
-const path = require("path");
-const { fileURLToPath } = require("url");
-const { dirname } = require("path");
-
+// Change these lines
+import assertionAnalyser from "./assertion-analyser.js";
+import { EventEmitter } from "events";
+import Mocha from "mocha";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 

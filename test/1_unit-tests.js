@@ -1,9 +1,11 @@
+import chai from "chai";
 import analyser from "./assertion-analyser.js";
 import { EventEmitter } from "events";
 import Mocha from "mocha";
 import fs from "fs";
 import path from "path";
 
+const assert = chai.assert;
 const mocha = new Mocha();
 const testDir = "./tests";
 

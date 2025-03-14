@@ -6,7 +6,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha ./test/**/*.js"
+    "test": "mocha ./test/**/*.js --node-option=experimental-vm-modules"
   },
   "dependencies": {
     "@playwright/test": "^1.51.0",
