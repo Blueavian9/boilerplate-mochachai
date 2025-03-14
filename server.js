@@ -1,11 +1,11 @@
 "use strict";
-const express from "express";
-const helmet from "helmet";
-const bodyParser from "body-parser";
-const runner from "./test-runner";
-const chaiHttp from "chai-http"; // Ensure chai-http is imported
+import express from "express";
+import helmet from "helmet";
+import bodyParser from "body-parser";
+import runner from "./test-runner";
+import chaiHttp from "chai-http"; // Ensure chai-http is imported
 
-const app = require("");
+import app from "chai";
 
 app.use(helmet());
 app.use(bodyParser.json());
