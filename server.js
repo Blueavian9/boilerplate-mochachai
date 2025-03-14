@@ -1,8 +1,8 @@
-import express from "express";
-import helmet from "helmet";
-import bodyParser from "body-parser";
-import runner from "./test-runner.mjs";
-import chaiHttp from "chai-http";
+const express = require("express");
+const helmet = require("helmet");
+const bodyParser = require("body-parser");
+const runner = require("./test-runner.js");
+const chaiHttp = require("chai-http");
 
 const app = express();
 
