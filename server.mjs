@@ -1,20 +1,19 @@
-"use strict";
 import express from "express";
 import helmet from "helmet";
 import bodyParser from "body-parser";
-import runner from "./test-runner";
-import chaiHttp from "chai-http"; // Ensure chai-http is imported
+import runner from "./test-runner.mjs";
+import chaiHttp from "chai-http";
 
-import app from "chai";
+const app = express();
 
 app.use(helmet());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+  res.sendFile(process.cwd() + "/views/index.html");
 });
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(process.cwd() + "/public"));
 
 app.get("/api/test", (req, res) => {
   res.status(200).json({ message: "CORS and Testing Working!" });
@@ -48,6 +47,7 @@ const travellers = (req, res) => {
 app.route("/travellers").put(travellers);
 
 let error;
+
 app.get(
   "/_api/get-tests",
   (req, res, next) => {
@@ -69,7 +69,7 @@ app.get(
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
-  console.log("Listening on port " + port);
+  console.log(`Listening on port ${port}`);
   console.log("Running Tests...");
   setTimeout(() => {
     try {
@@ -91,4 +91,4 @@ function testFilter(tests, type, n) {
   return n !== undefined ? filteredTests[n] || filteredTests : filteredTests;
 }
 
-export default module.exports = app;
+export default app;
