@@ -1,4 +1,4 @@
-import analyser from "./assertion-analyser.cjs";
+import analyser from "./assertion-analyser.js";
 
 function objParser(str, init) {
   // finds objects, arrays, strings, and function arguments

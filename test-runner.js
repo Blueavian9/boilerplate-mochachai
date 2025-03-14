@@ -1,4 +1,4 @@
-import assertionAnalyser from "./assertion-analyser.cjs";
+import assertionAnalyser from "./assertion-analyser.js";
 import { EventEmitter } from "events";
 import Mocha from "mocha";
 import fs from "fs";
