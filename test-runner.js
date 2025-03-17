@@ -1,16 +1,15 @@
-import { EventEmitter } from "events";
-import Mocha from "mocha";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-import assertionAnalyser from "./assertion-analyser.js";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const EventEmitter = require("events");
+const Mocha = require("mocha");
+const fs = require("fs");
+const path = require("path");
+const assertionAnalyser = require("./assertion-analyser.js");
 
 const mocha = new Mocha();
 const testDir = path.join(__dirname, "./tests");
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 // Add each .js file to the mocha instance
 fs.readdirSync(testDir)
