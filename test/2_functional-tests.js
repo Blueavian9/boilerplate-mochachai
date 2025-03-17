@@ -1,8 +1,8 @@
-import chai from "chai";
-import request from "supertest";
-import app from "../server.js"; // Note the .js extension
-import Browser from "zombie";
-import cors from "cors";
+const chai = require("chai");
+const request = require("supertest");
+const app = require("../server.js"); // Note the .js extension
+const Browser = require("zombie");
+const cors = require("cors");
 
 const { assert } = chai;
 const browser = new Browser();
