@@ -1,11 +1,13 @@
-const express = require("express");
-const helmet = require("helmet");
-const bodyParser = require("body-parser");
-const emitter = require("./test-runner.js");
-const chaiHttp = require("chai-http");
+import express from "express";
+import helmet from "helmet";
+import bodyParser from "body-parser";
+import emitter from "./test-runner.js";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+
 
 app.use(helmet());
 app.use(bodyParser.json());
@@ -93,4 +95,4 @@ function testFilter(tests, type, n) {
   return n !== undefined ? filteredTests[n] || filteredTests : filteredTests;
 }
 
-module.exports = app;
+export default app;
