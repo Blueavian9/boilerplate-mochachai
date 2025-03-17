@@ -1,14 +1,14 @@
-const EventEmitter = require("events");
-const Mocha = require("mocha");
-const fs = require("fs");
-const path = require("path");
-const assertionAnalyser = require("./assertion-analyser.js");
+import EventEmitter from "events";
+import Mocha from "mocha";
+import fs from "fs";
+import path from "path";
+import assertionAnalyser from "./assertion-analyser.js";
 
-const mocha = new Mocha();
-const testDir = path.join(__dirname, "./test/**/*.js");
+import mocha from new Mocha();
+import testDir from path.join(__dirname, "./test/**/*.js");
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+import __filename from fileURLToPath(import.meta.url);
+import __dirname from dirname(__filename);
 
 // Add each .js file to the mocha instance
 fs.readdirSync(testDir)
@@ -55,4 +55,5 @@ emitter.run = function () {
   }
 };
 
-export default emitter;
+
+export default new EventEmitter(); 
