@@ -9,6 +9,15 @@ const assert = chai.assert;
 const mocha = new Mocha();
 const testDir = "./tests";
 
+suite("Unit Tests", function () {
+  // Add unit tests here
+  test("Example test", function () {
+    assert.strictEqual(1, 1, "One equals One");
+  });
+
+  // More Unit Tests...
+});
+
 fs.readdirSync(testDir)
   .filter((file) => file.endsWith(".js"))
   .forEach((file) => {

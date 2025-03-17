@@ -1,17 +1,17 @@
-const chai = require("chai");
-const request = require("supertest");
-const app = require("../server"); // Import my Express App
-const { assert, request } = chai;
-const server = require("../server");
-const Browser = require("zombie");
+import chai from "chai";
+import request from "supertest";
+import app from "../server.js"; // Note the .js extension
+import Browser from "zombie";
+import cors from "cors";
+
+const { assert } = chai;
 const browser = new Browser();
-const cors = require("cors");
 app.use(cors());
 
 suite("Functional Tests", function () {
   suite("Integration tests with chai-http", function () {
     test("Test GET /hello with no name", function (done) {
-      request(server)
+      request(app)
         .get("/hello")
         .end(function (err, res) {
           assert.equal(res.status, 200);
@@ -21,7 +21,7 @@ suite("Functional Tests", function () {
     });
 
     test("Test GET /hello with your name", function (done) {
-      request(server)
+      request(app)
         .get("/hello?name=Cesar")
         .end(function (err, res) {
           assert.equal(res.status, 200);
@@ -31,7 +31,7 @@ suite("Functional Tests", function () {
     });
 
     test("Send {surname: 'Colombo'}", function (done) {
-      request(server)
+      request(app)
         .post("/name")
         .send({ surname: "Colombo" })
         .end(function (err, res) {
@@ -43,7 +43,7 @@ suite("Functional Tests", function () {
     });
 
     test("Send {surname: 'da Verrazzano'}", function (done) {
-      request(server)
+      request(app)
         .post("/name")
         .send({ surname: "da Verrazzano" })
         .end(function (err, res) {

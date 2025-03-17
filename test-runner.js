@@ -1,11 +1,11 @@
-// Change these lines
-import assertionAnalyser from "./assertion-analyser.js";
 import { EventEmitter } from "events";
 import Mocha from "mocha";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import { dirname } from "path";
+import assertionAnalyser from "./assertion-analyser.js";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -38,7 +38,7 @@ emitter.run = function () {
           title: test.title,
           context: context.slice(0, -separator.length),
           state: test.state,
-          assertions: analyser(body),
+          assertions: assertionAnalyser(body),
         };
         tests.push(obj);
       })

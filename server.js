@@ -1,8 +1,11 @@
 const express = require("express");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
-const runner = require("./test-runner.js");
+const emitter = require("./test-runner.js");
 const chaiHttp = require("chai-http");
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 
@@ -10,10 +13,10 @@ app.use(helmet());
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.sendFile(process.cwd() + "/views/index.html");
+  res.sendFile(__dirname + "/views/index.html");
 });
 
-app.use(express.static(process.cwd() + "/public"));
+app.use(express.static(__dirname + "/public"));
 
 app.get("/api/test", (req, res) => {
   res.status(200).json({ message: "CORS and Testing Working!" });
@@ -45,6 +48,7 @@ const travellers = (req, res) => {
 };
 
 app.route("/travellers").put(travellers);
+app.route("/name").post(travellers);
 
 let error;
 
@@ -56,12 +60,12 @@ app.get(
   },
   (req, res, next) => {
     if (!runner.report) return next();
-    res.json(testFilter(runner.report, req.query.type, req.query.n));
+    res.json(testFilter(emitter.report, req.query.type, req.query.n));
   },
   (req, res) => {
-    runner.on("done", (report) => {
+    emmiter.on("done", (report) => {
       process.nextTick(() =>
-        res.json(testFilter(runner.report, req.query.type, req.query.n))
+        res.json(testFilter(emitter.report, req.query.type, req.query.n))
       );
     });
   }
@@ -73,7 +77,7 @@ app.listen(port, () => {
   console.log("Running Tests...");
   setTimeout(() => {
     try {
-      runner.run();
+      emitter.run();
     } catch (e) {
       error = e;
       console.error("Tests are not valid:", error);
