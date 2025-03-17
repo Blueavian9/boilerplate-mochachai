@@ -93,4 +93,4 @@ function testFilter(tests, type, n) {
   return n !== undefined ? filteredTests[n] || filteredTests : filteredTests;
 }
 
-export default app;
+module.exports = app;

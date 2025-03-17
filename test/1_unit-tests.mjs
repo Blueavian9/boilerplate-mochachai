@@ -59,4 +59,4 @@ emitter.run = function () {
     });
 };
 
-export default emitter;
+module.exports = { emitter };
