@@ -5,8 +5,7 @@ const path = require("path");
 const assertionAnalyser = require("./assertion-analyser.js");
 
 const mocha = new Mocha();
-const testDir = path.join(__dirname, "./tests");
-
+const testDir = path.join(__dirname, "./test/**/*.js");
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
