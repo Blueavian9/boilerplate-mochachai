@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha './test/**/*.js' --node-option=experimental-vm-modules",
+    "test": "mocha './test/**/*.cjs' --node-option=experimental-vm-modules",
     "type": "module"
   },
   "dependencies": {
