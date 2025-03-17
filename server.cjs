@@ -1,7 +1,7 @@
 const express = require("express");
 const helmet = require("helmet");
 const bodyParser = require("body-parser");
-const emitter = require("./test-runner.js");
+const emitter = require("./test-runner.cjs");
 const chaiHttp = require("chai-http");
 
 const __filename = fileURLToPath(import.meta.url);
