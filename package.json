@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "test": "mocha test/ --exit",
-    "type": "module"
+    "test": "mocha test --exit"
   },
   "dependencies": {
     "@playwright/test": "^1.51.0",
