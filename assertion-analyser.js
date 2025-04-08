@@ -1,6 +1,16 @@
 import fs from "fs";
 import path from "path";
 
+
+const assert = require('chai').assert;
+
+suite('Unit Test', function() {
+  test('#isNull, #isNotNull', function() {
+    assert.isNull(null, 'this is an optional message'); 
+    assert.isNull(1, '1 is not null');
+  });
+});
+
 export function analyzeAssertions() {
   function objParser(str, init) {
     // finds objects, arrays, strings, and function arguments
